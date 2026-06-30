@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Alonzo — Big Tech Mentorship in Seoul</title>
+<meta name="description" content="Alonzo pairs Korean students with American engineers at Meta, Amazon, Microsoft, Apple, and Google for 1:1 mentorship toward careers in U.S. Big Tech." />
+<meta name="theme-color" content="#0b1f3a" />
+
+<!-- ============================================================
+     ONLY ONE THING TO EDIT FOR LINKS: the ALONZO config block at
+     the very bottom of this file (search for "const ALONZO").
+     It controls the Apply link, contact email, and LinkedIn URL.
+
+     IMAGES live in this same folder:
+       logo.png             brand mark (nav + hero)
+       favicon.png          browser tab icon
+       apple-touch-icon.png home-screen icon
+       og-image.png         social share preview (1200x630)
+     ============================================================ -->
+
+<!-- Favicon + home-screen icon -->
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+<!-- Social share preview (works on LinkedIn / KakaoTalk / etc.) -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Alonzo" />
+<meta property="og:title" content="Alonzo — Big Tech Mentorship in Seoul" />
+<meta property="og:description" content="American engineers at Meta, Amazon, Microsoft, Apple, and Google mentoring Korean students toward careers in U.S. Big Tech." />
+<meta property="og:url" content="https://alonzomentorship.org/" />
+<meta property="og:image" content="https://alonzomentorship.org/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Alonzo — Big Tech Mentorship in Seoul" />
+<meta name="twitter:description" content="American engineers at Meta, Amazon, Microsoft, Apple, and Google mentoring Korean students toward careers in U.S. Big Tech." />
+<meta name="twitter:image" content="https://alonzomentorship.org/og-image.png" />
+
+<style>
+  :root{
+    --navy:#0b1f3a;
+    --blue:#1d4ed8;
+    --blue-light:#3b82f6;
+    --accent:#e11d48;     /* subtle red accent (KR/US nod) */
+    --bg:#f7f9fc;
+    --card:#ffffff;
+    --text:#1a2433;
+    --muted:#5b6b80;
+    --line:#e6ebf2;
+    --radius:16px;
+    --shadow:0 10px 30px rgba(11,31,58,.08);
+    --max:1100px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *{transition:none !important}
+  }
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text);background:var(--bg);line-height:1.6;
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+
+  /* visible keyboard focus for accessibility */
+  a:focus-visible,.btn:focus-visible,button:focus-visible{
+    outline:3px solid var(--blue-light);outline-offset:2px;border-radius:8px;
+  }
+
+  /* skip link */
+  .skip{
+    position:absolute;left:-9999px;top:0;z-index:100;
+    background:var(--navy);color:#fff;padding:10px 16px;border-radius:0 0 10px 0;
+  }
+  .skip:focus{left:0}
+
+  /* ---------- Header / Nav ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,.85);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.25rem;color:var(--navy);letter-spacing:-.02em}
+  .brand-logo{width:36px;height:36px;border-radius:50%;object-fit:cover;border:1px solid var(--line)}
+  .nav-links{display:flex;align-items:center;gap:10px}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:10px 18px;border-radius:999px;font-weight:600;font-size:.95rem;
+    border:1px solid var(--line);background:#fff;color:var(--navy);
+    transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
+    cursor:pointer;
+  }
+  .btn:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+  .btn.primary{background:var(--blue);color:#fff;border-color:var(--blue)}
+  .btn.primary:hover{background:#1742c9}
+  .btn.is-disabled{opacity:.55;cursor:not-allowed}
+  .btn.is-disabled:hover{transform:none;box-shadow:none}
+  .menu-toggle{display:none;background:none;border:none;font-size:1.6rem;cursor:pointer;color:var(--navy)}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:84px 0 64px;position:relative;overflow:hidden}
+  .hero:before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(900px 400px at 80% -10%, rgba(59,130,246,.14), transparent 60%),
+               radial-gradient(700px 360px at -10% 20%, rgba(225,29,72,.07), transparent 60%);
+    z-index:-1;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+  .hero-copy{min-width:0}
+  .hero-art{display:flex;justify-content:center}
+  .hero-art img{width:min(360px,80%);height:auto;border-radius:50%;background:#fff;border:1px solid var(--line);box-shadow:0 20px 50px rgba(11,31,58,.14);padding:12px}
+  .eyebrow{display:inline-block;font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);background:#eaf0ff;padding:6px 14px;border-radius:999px;margin-bottom:20px}
+  .hero h1{font-size:clamp(2.1rem,5vw,3.4rem);line-height:1.1;letter-spacing:-.03em;color:var(--navy);max-width:16ch}
+  .hero p.lead{margin-top:20px;font-size:1.2rem;color:var(--muted);max-width:54ch}
+  .hero-cta{margin-top:32px;display:flex;flex-wrap:wrap;gap:14px}
+  .hero-cta .btn{padding:14px 26px;font-size:1.02rem}
+  .stats{display:flex;gap:40px;margin-top:48px;flex-wrap:wrap}
+  .stat .num{font-size:2rem;font-weight:800;color:var(--navy)}
+  .stat .label{font-size:.92rem;color:var(--muted)}
+
+  /* ---------- Sections ---------- */
+  section.block{padding:72px 0;border-top:1px solid var(--line)}
+  .section-head{max-width:640px;margin-bottom:40px}
+  .section-head h2{font-size:clamp(1.7rem,3.5vw,2.3rem);color:var(--navy);letter-spacing:-.02em}
+  .section-head p{margin-top:12px;color:var(--muted);font-size:1.08rem}
+  .muted-text{color:var(--muted);max-width:54ch;margin-bottom:24px}
+
+  .grid{display:grid;gap:22px}
+  .grid-3{grid-template-columns:repeat(3,1fr)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+  .card .ic{width:46px;height:46px;border-radius:12px;background:#eaf0ff;color:var(--blue);display:grid;place-items:center;font-size:1.4rem;margin-bottom:16px}
+  .card h3{font-size:1.18rem;color:var(--navy);margin-bottom:8px}
+  .card p{color:var(--muted);font-size:.98rem}
+
+  /* steps */
+  .steps{counter-reset:step}
+  .step{display:flex;gap:20px;padding:22px 0;border-bottom:1px dashed var(--line)}
+  .step:last-child{border-bottom:none}
+  .step .n{counter-increment:step;flex:none;width:42px;height:42px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:800}
+  .step .n:before{content:counter(step)}
+  .step h3{color:var(--navy);font-size:1.12rem}
+  .step p{color:var(--muted)}
+
+  /* mentors */
+  .mentor-grid{grid-template-columns:repeat(4,1fr)}
+  .mentor{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;text-align:center;box-shadow:var(--shadow)}
+  .avatar{width:72px;height:72px;border-radius:50%;margin:0 auto 12px;display:grid;place-items:center;font-weight:800;color:#fff;font-size:1.2rem;background:linear-gradient(135deg,var(--blue),var(--blue-light));overflow:hidden}
+  .avatar img{width:100%;height:100%;object-fit:cover}
+  .avatar-ph{background:#eaf0ff;color:#9bb0d3}
+  .avatar-ph svg{width:38px;height:38px}
+  .mentor .name{font-weight:700;color:var(--navy)}
+  .mentor .role{font-size:.85rem;color:var(--muted);margin-top:2px}
+  .mentor .bio{font-size:.88rem;color:var(--muted);margin-top:8px}
+  .note{margin-top:20px;font-size:.85rem;color:var(--muted);font-style:italic}
+
+  /* chips (mentor focus areas) */
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 24px}
+  .chip{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;background:#eaf0ff;color:var(--blue);font-weight:600;font-size:.95rem;border:1px solid #dbe6ff}
+
+  /* ---------- Contact ---------- */
+  #contact{background:linear-gradient(135deg,var(--navy),#13294d);color:#fff;border-radius:24px;padding:56px;margin:0 0 8px;text-align:center}
+  #contact h2{font-size:clamp(1.7rem,3.5vw,2.3rem);color:#fff}
+  #contact p{color:#c3d0e4;margin-top:12px;max-width:48ch;margin-left:auto;margin-right:auto}
+  #contact .hero-cta{justify-content:center;margin-top:28px}
+  #contact .btn{background:#fff;color:var(--navy);border:none}
+  #contact .btn.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4)}
+
+  /* ---------- Partners ---------- */
+  .partners{text-align:center}
+  .partners h2{font-size:clamp(1.4rem,3vw,1.9rem);color:var(--navy);margin-bottom:8px}
+  .partners .sub{color:var(--muted);margin-bottom:24px}
+  .partner-card{display:inline-flex;align-items:center;gap:14px;padding:16px 22px;border:1px solid var(--line);border-radius:var(--radius);background:var(--card);box-shadow:var(--shadow);transition:transform .12s ease, box-shadow .12s ease;text-align:left}
+  .partner-card:hover{transform:translateY(-1px);box-shadow:0 14px 34px rgba(11,31,58,.12)}
+  .partner-card .p-logo{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-weight:800;color:#fff;font-size:1.2rem;background:linear-gradient(135deg,#e11d48,#fb7185)}
+  .partner-card .p-name{font-weight:700;color:var(--navy);display:block}
+  .partner-card .p-sub{font-size:.85rem;color:var(--muted);display:block}
+
+  /* ---------- Footer ---------- */
+  footer{padding:36px 0;text-align:center;color:var(--muted);font-size:.9rem}
+  footer a{color:var(--blue);font-weight:600}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr;gap:24px}
+    .hero-art{order:-1}
+    .hero-art img{width:200px;padding:8px}
+    .grid-3{grid-template-columns:1fr}
+    .mentor-grid{grid-template-columns:repeat(2,1fr)}
+    .nav-links{
+      position:absolute;top:68px;left:0;right:0;
+      flex-direction:column;align-items:stretch;gap:8px;
+      background:#fff;border-bottom:1px solid var(--line);padding:16px 24px;
+      display:none;
+    }
+    .nav-links.open{display:flex}
+    .menu-toggle{display:block}
+    #contact{padding:40px 24px}
+  }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ============ HEADER / NAV ============ -->
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top"><img class="brand-logo" src="logo.png" alt="" aria-hidden="true" /> Alonzo</a>
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navlinks" id="menuToggle">☰</button>
+    <nav class="nav-links" id="navlinks" aria-label="Primary">
+      <a class="btn" href="#about">About</a>
+      <a class="btn" href="#mentors">Mentors</a>
+      <a class="btn" data-linkedin href="https://www.linkedin.com/company/alonzomentorship/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="#contact">Contact</a>
+      <a class="btn primary" data-apply data-soon="Applications soon" href="#contact" target="_blank" rel="noopener">Apply →</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<main id="main">
+<a id="top"></a>
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Big Tech Mentorship · Seoul</span>
+        <h1>Your path from Seoul to U.S. Big Tech</h1>
+        <p class="lead">Alonzo pairs students in Korea with American engineers at Meta, Amazon, Microsoft, Apple, and Google — through monthly 1:1 mentorship and a community working toward the same goal.</p>
+        <div class="hero-cta">
+          <a class="btn primary" data-apply data-soon="Applications opening soon" href="#contact" target="_blank" rel="noopener">Apply to the waitlist →</a>
+          <a class="btn" data-linkedin href="https://www.linkedin.com/company/alonzomentorship/" target="_blank" rel="noopener">Follow on LinkedIn</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <img src="logo.png" alt="Alonzo — mentors and students" width="360" height="360" />
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="num">9</div><div class="label">Mentors in U.S. Big Tech</div></div>
+      <div class="stat"><div class="num">15</div><div class="label">Students mentored</div></div>
+      <div class="stat"><div class="num">1:1</div><div class="label">Monthly video sessions</div></div>
+      <div class="stat"><div class="num">100%</div><div class="label">Free to join</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="block" id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What is Alonzo?</h2>
+      <p>A volunteer mentorship program run by American engineers working in big tech. We help Korean students who want to build careers at U.S. companies like Meta, Amazon, Microsoft, Apple, and Google — through personal mentorship and a local community.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card">
+        <div class="ic" aria-hidden="true">🤝</div>
+        <h3>1-on-1 mentorship</h3>
+        <p>Monthly 1:1 video calls with an American big-tech engineer, focused on your goals and the concrete steps to get there.</p>
+      </div>
+      <div class="card">
+        <div class="ic" aria-hidden="true">🏛️</div>
+        <h3>Campus community</h3>
+        <p>Monthly in-person meetups on the SNU campus to meet other students, ask questions, and watch presentations — hosted by mentor Ray.</p>
+      </div>
+      <div class="card">
+        <div class="ic" aria-hidden="true">🎯</div>
+        <h3>Aimed at Big Tech</h3>
+        <p>Guidance tailored to landing roles at Meta, Amazon, Microsoft, Apple, and Google — recruiting, interviews, and what to do right now.</p>
+      </div>
+    </div>
+    <p class="note">Today, 9 mentors support 15 students from Seoul National University, Korea University, Yonsei University, and Chung-Ang University.</p>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="block" id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>How it works</h2>
+      <p>Joining is simple and completely free.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n" aria-hidden="true"></div><div><h3>Apply to the waitlist</h3><p>Fill out a short form telling us about your background and goals.</p></div></div>
+      <div class="step"><div class="n" aria-hidden="true"></div><div><h3>Get matched</h3><p>We pair you with a mentor whose experience fits your target companies and field.</p></div></div>
+      <div class="step"><div class="n" aria-hidden="true"></div><div><h3>Meet every month</h3><p>Monthly 1:1 video calls with your mentor, plus in-person meetups on the SNU campus.</p></div></div>
+      <div class="step"><div class="n" aria-hidden="true"></div><div><h3>Grow over 6+ months</h3><p>Mentoring runs for at least six months and often becomes a long-term relationship.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MENTORS ============ -->
+<section class="block" id="mentors">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Our mentors</h2>
+      <p>Nine engineers and researchers across U.S. Big Tech volunteer with Alonzo. We're adding their photos and short bios as each mentor opts in.</p>
+    </div>
+    <div class="grid mentor-grid">
+      <!-- PLACEHOLDER mentor cards — replace with real photo + name + bio as mentors approve.
+           The real roster + a ready-to-use card template are in the comment just below this grid. -->
+      <div class="mentor">
+        <div class="avatar avatar-ph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+        <div class="name">Profile coming soon</div>
+        <div class="role">Mentor</div>
+      </div>
+      <div class="mentor">
+        <div class="avatar avatar-ph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+        <div class="name">Profile coming soon</div>
+        <div class="role">Mentor</div>
+      </div>
+      <div class="mentor">
+        <div class="avatar avatar-ph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+        <div class="name">Profile coming soon</div>
+        <div class="role">Mentor</div>
+      </div>
+      <div class="mentor">
+        <div class="avatar avatar-ph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+        <div class="name">Profile coming soon</div>
+        <div class="role">Mentor</div>
+      </div>
+    </div>
+    <p class="note">These profiles are placeholders — real photos and short bios will replace them as mentors confirm.</p>
+  </div>
+
+  <!-- ============================================================
+       REAL MENTOR ROSTER (provided by Ray) — drop in once each mentor
+       approves having their photo/bio used publicly.
+
+       Card template WITH a photo (put the image in a "mentors/" subfolder):
+         <div class="mentor">
+           <div class="avatar"><img src="mentors/ray-sun.jpg" alt="Ray Sun"></div>
+           <div class="name">Ray Sun</div>
+           <div class="role">Meta · 4 yrs</div>
+           <div class="bio">One- or two-line bio here.</div>
+         </div>
+
+       Roster (name — role/company):
+         Ray Sun           — Meta · 4 yrs (hosts the SNU campus meetups)
+         Janghyun Kim      — AI Researcher, Apple · PhD, SNU (mentors 4 research mentees)
+         Riya Dave         — Microsoft · 5 yrs
+         Mitesh Patel      — Amazon · 5 yrs
+         Tony Zhang        — Meta · 4 yrs
+         Austin Lee        — Amazon & Microsoft · 4 yrs
+         Jeyeon Si         — Moloco · 3 yrs · BS, SNU
+         Jody Lin          — Amazon · 3 yrs
+         Ryan Haraki       — Founding Engineer, Ando
+       ============================================================ -->
+</section>
+
+<!-- ============ BECOME A MENTOR ============ -->
+<section class="block" id="mentor-with-us">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Become a mentor</h2>
+      <p>We're looking for mentor volunteers. We'd especially love to hear from engineers and researchers with experience in:</p>
+    </div>
+    <div class="chips">
+      <span class="chip">🌐 Computer networking</span>
+      <span class="chip">📈 Quant trading</span>
+      <span class="chip">🖥️ HCI research</span>
+    </div>
+    <p class="muted-text">If that sounds like you — or someone you know — we'd love to connect. Mentoring takes about an hour a month.</p>
+    <a class="btn primary" id="mentorBtn" href="#">Become a mentor →</a>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="block">
+  <div class="wrap">
+    <div id="contact">
+      <h2>Get in touch</h2>
+      <p>Questions about the program, partnering, or becoming a mentor? We'd love to hear from you.</p>
+      <div class="hero-cta">
+        <a class="btn" id="emailBtn" href="#">Email us</a>
+        <a class="btn ghost" data-linkedin href="https://www.linkedin.com/company/alonzomentorship/" target="_blank" rel="noopener">Message on LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PARTNER ORGANIZATIONS ============ -->
+<section class="block">
+  <div class="wrap partners">
+    <h2>Partner Organizations</h2>
+    <p class="sub">We collaborate with great communities working toward similar goals.</p>
+    <a class="partner-card" href="https://www.instagram.com/theyeonproject/" target="_blank" rel="noopener">
+      <span class="p-logo" aria-hidden="true">Y</span>
+      <span class="p-text">
+        <span class="p-name">The Yeon Project</span>
+        <span class="p-sub">@theyeonproject on Instagram →</span>
+      </span>
+    </a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">© <span id="yr"></span> Alonzo · Big Tech mentorship in Seoul · <a id="footEmail" href="#">contact@alonzomentorship.org</a></div>
+</footer>
+
+<script>
+  // ============================================================
+  //  EDIT THESE THREE VALUES — that's the whole link configuration.
+  // ============================================================
+  const ALONZO = {
+    // The application / waitlist Google Form.
+    applicationFormUrl: "https://forms.gle/FPrAjZwJCHiiRrn2A",
+
+    // The Alonzo LinkedIn page.
+    linkedinUrl: "https://www.linkedin.com/company/alonzomentorship/",
+
+    // Contact email. Leave blank ("") to hide the email buttons.
+    contactEmail: "contact@alonzomentorship.org"
+  };
+  // ============================================================
+
+  (function () {
+    // Current year in footer
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // LinkedIn links
+    if (ALONZO.linkedinUrl) {
+      document.querySelectorAll('[data-linkedin]').forEach(function (el) {
+        el.setAttribute('href', ALONZO.linkedinUrl);
+      });
+    }
+
+    // Apply buttons (Google Form / waitlist)
+    document.querySelectorAll('[data-apply]').forEach(function (el) {
+      if (ALONZO.applicationFormUrl) {
+        el.setAttribute('href', ALONZO.applicationFormUrl);
+        el.setAttribute('target', '_blank');
+        el.setAttribute('rel', 'noopener');
+      } else {
+        if (el.dataset.soon) el.textContent = el.dataset.soon;
+        el.classList.add('is-disabled');
+        el.setAttribute('aria-disabled', 'true');
+        el.removeAttribute('target');
+        el.setAttribute('href', '#');
+        el.addEventListener('click', function (e) { e.preventDefault(); });
+      }
+    });
+
+    // Contact email — "Email us" button + footer link
+    var emailTargets = [
+      { el: document.getElementById('emailBtn'), removeIfEmpty: true },
+      { el: document.getElementById('footEmail'), removeIfEmpty: false }
+    ];
+    emailTargets.forEach(function (t) {
+      if (!t.el) return;
+      if (ALONZO.contactEmail) {
+        t.el.setAttribute('href', 'mailto:' + ALONZO.contactEmail);
+        if (t.el.id === 'footEmail') t.el.textContent = ALONZO.contactEmail;
+      } else if (t.removeIfEmpty) {
+        t.el.remove();
+      }
+    });
+
+    // "Become a mentor" button — mailto with a helpful subject line
+    var mentorBtn = document.getElementById('mentorBtn');
+    if (mentorBtn) {
+      if (ALONZO.contactEmail) {
+        mentorBtn.setAttribute('href', 'mailto:' + ALONZO.contactEmail + '?subject=' + encodeURIComponent('Becoming an Alonzo mentor'));
+      } else {
+        mentorBtn.classList.add('is-disabled');
+        mentorBtn.setAttribute('aria-disabled', 'true');
+        mentorBtn.addEventListener('click', function (e) { e.preventDefault(); });
+      }
+    }
+
+    // Mobile menu toggle (with aria state)
+    var toggle = document.getElementById('menuToggle');
+    var links = document.getElementById('navlinks');
+    if (toggle && links) {
+      toggle.addEventListener('click', function () {
+        var open = links.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      links.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          links.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  })();
+</script>
+</body>
+</html>
