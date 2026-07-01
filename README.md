@@ -22,7 +22,7 @@ them, edit the one config block at the bottom of `index.html` (search `const ALO
 const ALONZO = {
   applicationFormUrl: "https://forms.gle/FPrAjZwJCHiiRrn2A",
   linkedinUrl: "https://www.linkedin.com/company/alonzomentorship/",
-  contactEmail: "contact@alonzomentorship.org"   // blank ("") hides the email buttons
+  contactEmail: "contact@alonzo.kr"   // blank ("") hides the email buttons
 };
 ```
 
@@ -53,9 +53,9 @@ Drag this `alonzo-site` folder onto **[Netlify](https://www.netlify.com)** (or
 import it on **Vercel** or **Cloudflare Pages**). No build settings are needed for
 a static page, and all three serve from a global CDN (reachable from Korea worldwide).
 
-### Custom domain (alonzomentorship.org)
+### Custom domain (alonzo.kr)
 
-After deploying, add `alonzomentorship.org` under the host's domain settings and
+After deploying, add `alonzo.kr` under the host's domain settings and
 point your DNS there — HTTPS is handled automatically. The `og:url` / `og:image`
 tags in `index.html` already use this domain, so social previews light up once DNS
 is live. If you launch on a temporary `*.netlify.app` URL first, update those two
