@@ -21,7 +21,7 @@ them, edit the one config block at the bottom of `index.html` (search `const ALO
 ```js
 const ALONZO = {
   applicationFormUrl: "https://forms.gle/FPrAjZwJCHiiRrn2A",
-  linkedinUrl: "https://www.linkedin.com/company/alonzomentorship/",
+  linkedinUrl: "https://www.linkedin.com/company/alonzokr/",
   contactEmail: "contact@alonzo.kr"   // blank ("") hides the email buttons
 };
 ```
