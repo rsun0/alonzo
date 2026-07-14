@@ -56,6 +56,8 @@
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
+  /* keep anchor targets clear of the 68px sticky header */
+  :target,#about,#mentors,#contact,#partners{scroll-margin-top:88px}
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto}
     *{transition:none !important}
@@ -178,7 +180,9 @@
   .partners{text-align:center}
   .partners h2{font-size:clamp(1.4rem,3vw,1.9rem);color:var(--navy);margin-bottom:8px}
   .partners .sub{color:var(--muted);margin-bottom:24px}
-  .partner-card{display:inline-flex;align-items:center;gap:14px;padding:16px 22px;border:1px solid var(--line);border-radius:var(--radius);background:var(--card);box-shadow:var(--shadow);transition:transform .12s ease, box-shadow .12s ease;text-align:left}
+  .partner-list{display:inline-grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch;max-width:100%}
+  .partner-card{display:flex;align-items:center;gap:14px;padding:16px 22px;border:1px solid var(--line);border-radius:var(--radius);background:var(--card);box-shadow:var(--shadow);transition:transform .12s ease, box-shadow .12s ease;text-align:left}
+  .partner-card .p-text{min-width:0}
   .partner-card:hover{transform:translateY(-1px);box-shadow:0 14px 34px rgba(11,31,58,.12)}
   .partner-card .p-logo{width:46px;height:46px;border-radius:12px;object-fit:cover;flex:0 0 auto;background:#f1f5f9}
   .partner-card .p-name{font-weight:700;color:var(--navy);display:block}
@@ -194,6 +198,7 @@
     .hero-art{order:-1}
     .hero-art img{width:200px;padding:8px}
     .grid-3{grid-template-columns:1fr}
+    .partner-list{grid-template-columns:1fr}
     .mentor-grid{grid-template-columns:repeat(2,1fr)}
     .nav-links{
       position:absolute;top:68px;left:0;right:0;
@@ -220,6 +225,7 @@
       <a class="btn" href="#about">About</a>
       <a class="btn" href="#mentors">Mentors</a>
       <a class="btn" href="#contact">Contact</a>
+      <a class="btn" href="#partners">Partners</a>
       <a class="btn" data-linkedin href="https://www.linkedin.com/company/alonzokr/" target="_blank" rel="noopener">LinkedIn</a>
       <a class="btn primary" data-apply data-soon="Applications soon" href="#contact" target="_blank" rel="noopener">Apply →</a>
     </nav>
@@ -367,10 +373,11 @@
 </section>
 
 <!-- ============ PARTNER ORGANIZATIONS ============ -->
-<section class="block">
+<section class="block" id="partners">
   <div class="wrap partners">
     <h2>Partner Organizations</h2>
     <p class="sub">We collaborate with great communities working toward similar goals.</p>
+    <div class="partner-list">
     <a class="partner-card" href="https://www.instagram.com/theyeonproject/" target="_blank" rel="noopener">
       <img class="p-logo" src="theyeonproject.jpg" alt="" aria-hidden="true">
       <span class="p-text">
@@ -392,6 +399,7 @@
         <span class="p-sub">Website →</span>
       </span>
     </a>
+    </div>
   </div>
 </section>
 </main>
