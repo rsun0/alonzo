@@ -13,9 +13,10 @@
      It controls the Apply link, contact email, and LinkedIn URL.
 
      IMAGES live in this same folder:
-       logo.svg             brand mark (nav + hero + favicon)
+       logo.svg             brand mark (nav + favicon)
        logo-text.svg        wordmark (nav brand)
        logo.png             brand mark, PNG copy (640x640)
+       logo-old.png         original logo (hero)
        favicon.png          browser tab icon (PNG fallback)
        apple-touch-icon.png home-screen icon
        og-image.png         social share preview (1200x630)
@@ -121,7 +122,7 @@
   .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
   .hero-copy{min-width:0}
   .hero-art{display:flex;justify-content:center}
-  .hero-art img{width:min(360px,80%);height:auto;border-radius:26%;box-shadow:0 20px 50px rgba(11,31,58,.18)}
+  .hero-art img{width:min(360px,80%);height:auto;border-radius:50%;background:#fff;border:1px solid var(--line);box-shadow:0 20px 50px rgba(11,31,58,.14);padding:12px}
   .eyebrow{display:inline-block;font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);background:#eaf0ff;padding:6px 14px;border-radius:999px;margin-bottom:20px}
   .hero h1{font-size:clamp(2.1rem,5vw,3.4rem);line-height:1.1;letter-spacing:-.03em;color:var(--navy);max-width:16ch}
   .hero p.lead{margin-top:20px;font-size:1.2rem;color:var(--muted);max-width:54ch}
@@ -200,7 +201,7 @@
   @media (max-width:860px){
     .hero-grid{grid-template-columns:1fr;gap:24px}
     .hero-art{order:-1}
-    .hero-art img{width:200px}
+    .hero-art img{width:200px;padding:8px}
     .grid-3{grid-template-columns:1fr}
     .partner-list{grid-template-columns:1fr}
     .mentor-grid{grid-template-columns:repeat(2,1fr)}
@@ -252,7 +253,7 @@
         </div>
       </div>
       <div class="hero-art">
-        <img src="logo.svg" alt="Alonzo logo" width="360" height="360" />
+        <img src="logo-old.png" alt="Alonzo — mentors and students" width="360" height="360" />
       </div>
     </div>
     <div class="stats">

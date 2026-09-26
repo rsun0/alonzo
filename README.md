@@ -7,9 +7,10 @@ no dependencies, no backend. Open `index.html` in any browser to preview.
 
 ```
 index.html             the page
-logo.svg               brand mark (nav + hero + favicon)
+logo.svg               brand mark (nav + favicon)
 logo-text.svg          wordmark (nav brand)
 logo.png               brand mark, PNG copy (640x640)
+logo-old.png           original logo (hero)
 favicon.png            browser-tab icon (PNG fallback)
 apple-touch-icon.png   home-screen icon
 og-image.png           social share preview (1200x630)
